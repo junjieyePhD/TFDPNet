@@ -220,7 +220,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
                     loss_fusion, alpha = self.fusion(x_time_loss, x_fre_loss, batch_y)
                     loss1 = F.l1_loss(outputs, batch_y)
-                    loss = self.alpha * criterion(outputs, batch_y) + loss1 + loss_fusion
+                    loss = criterion(outputs, batch_y) + loss1 + loss_fusion
 
                     train_loss.append(loss.item())
 
