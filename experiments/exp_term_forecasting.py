@@ -28,7 +28,7 @@ class WeightedFusionLoss(nn.Module):
         super(WeightedFusionLoss, self).__init__()
         self.alpha = nn.Parameter(torch.tensor(alpha_init))  # 让 alpha 可学习
         # self.mse = nn.L1Loss()
-        self.mse = nn.nn.MSELoss()
+        self.mse = nn.MSELoss()
 
     def forward(self, pred_time, pred_Frequency, target):
         """
