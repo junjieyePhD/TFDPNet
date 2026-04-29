@@ -1,2 +1,2 @@
-## TF-DualNet
-#### TF-DualNet: Time-Frequency Dual-Path Network with Dynamic Variable Clustering and Adaptive Frequency Learning for Time Series Forecasting
+## TFDPNet
+#### A Time–Frequency Dual-Path Network for Multivariate Time Series Forecasting via Dynamic Variable Clustering and Adaptive Frequency Modeling
