@@ -19,7 +19,6 @@ if __name__ == '__main__':
     parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
     parser.add_argument('--model', type=str, required=True, default='Transformer',
                         help='model name, options: [TFDPNet, iTransformer, iInformer, iReformer, iFlowformer, iFlashformer]')
-
     # data loader
     parser.add_argument('--data', type=str, required=True, default='custom', help='dataset type')
     parser.add_argument('--root_path', type=str, default='./data/electricity/', help='root path of the data file')
