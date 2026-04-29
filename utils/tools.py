@@ -7,7 +7,6 @@ import pandas as pd
 
 plt.switch_backend('agg')
 
-
 def adjust_learning_rate(optimizer, scheduler, epoch, args):
     # lr = args.learning_rate * (0.2 ** (epoch // 2))
     if args.lradj == 'type1':
