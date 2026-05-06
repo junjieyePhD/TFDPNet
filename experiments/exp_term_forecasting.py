@@ -51,7 +51,7 @@ class Exp_Long_Term_Forecast(Exp_Basic):
     def __init__(self, args):
         super(Exp_Long_Term_Forecast, self).__init__(args)
         self.fusion = WeightedFusionLoss()
-        self.alpha = nn.Parameter(torch.tensor(0.5))
+        # self.alpha = nn.Parameter(torch.tensor(0.5))
 
     def _build_model(self):
         model = self.model_dict[self.args.model].Model(self.args).float()
@@ -75,13 +75,10 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         return data_set, data_loader
 
     def _select_optimizer(self):
-        if self.args.model == "FourierGNN":
-            model_optim = torch.optim.RMSprop(params=self.model.parameters(), lr=self.args.learning_rate, eps=1e-08)
-        else:
-            model_optim = optim.Adam(self.model.parameters(), lr=self.args.learning_rate, betas=(0.9, 0.98), eps=1e-08, weight_decay=0)
-        # model_optim = optim.SGD(self.model.parameters(), lr=self.args.learning_rate)
+    params = list(self.model.parameters()) + list(self.fusion.parameters())
+    model_optim = optim.Adam(params,lr=self.args.learning_rate,betas=(0.9, 0.98),eps=1e-08,weight_decay=0)
 
-        return model_optim
+    return model_optim
 
     def _select_criterion(self):
         criterion = nn.MSELoss()
